@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>BoxWar</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="styles/menu.css" media="all" rel="stylesheet" type="text/css" />
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #f0f0f0;
+				margin: 0px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+
+		<script type="text/javascript"> 
+			var local = "./";
+		</script>
+
+		<script src="js/libs/jquery-1.9.1.min.js"></script>
+		<script src="js/libs/three.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+		<script src="js/libs/core.min.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/box_world.js"></script>
+		<script src="js/cloud.js"></script>
+		<script src="js/box.js"></script>
+		<script src="js/wall.js"></script>
+
+<!--
+	Define menus here
+-->
+
+		<div id="start_menu" style="">
+			<div class="div_button">
+				<a href="#" id="start_button" class="menuButton_green">Start!</a>
+			</div>
+			<div class="div_button">
+				<a href="#" id="options_button" class="menuButton_green">Options</a>
+			</div>
+		</div>
+
+		<script>
+
+		var main_menu;
+
+		function initMenu() {
+			main_menu = new Menu($("#start_menu"));
+
+			main_menu.hide = function(transition) {
+				if(transition)
+				{
+					this.container.animate(
+						{ opacity: 0.0 },
+						1000, 
+						function() {
+
+						}
+					)
+				}
+				else
+					Menu.prototype.hide.call(this);
+			}
+
+			main_menu.buttons["start_button"].onclick = function() {
+				main_menu.hide();
+			}
+
+			main_menu.buttons["options_button"].onclick = function(){
+				
+			}
+
+			main_menu.center();
+			main_menu.hide(false);
+		}
+		</script>
+		
+		<script src="js/game.js"></script>
+
+	</body>
+</html>
